@@ -18,3 +18,18 @@ For all other text, if not specified above, an approximate font size is acceptab
 */
 
 /* TO-DO */
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header {
+    font-size: 14px;
+}
+
+/*.background-section {
+    /* This needs to have a z index of -1 I believe. Need to be able to be static and scroll past it.
+} */
+
+
