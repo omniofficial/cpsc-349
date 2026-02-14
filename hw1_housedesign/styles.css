@@ -1,37 +1,27 @@
-/* General Guidelines:
-   - Use the provided purple color (#6f5eff) where applicable.
-   - The default font family for HW1 should be Arial, sans-serif.
-*/
-
-/* Typography: */
-/* 
-"House Design" title 
-    font-size: 1.5rem;
-    font-weight: bold;
-"House Styling" title 
-    font-size: 20px;
-Footer section headings: 'Store Info', 'About', 'Account', 'Policy'
-    font-size: 14px;
-Footer content 
-    font-size: 12px;
-For all other text, if not specified above, an approximate font size is acceptable. 
-*/
-
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
+body,
+html {
+    width: 100%;
+}
+
 .top-section {
-    background-color: #f8ebeb;
+    color: #811111;
+    background-color: #f2e9e9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding-bottom: 60px;
+    gap: 40px;
+    padding: 40px;
 }
 
 .title {
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
@@ -55,6 +45,81 @@ For all other text, if not specified above, an approximate font size is acceptab
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    filter: hue-rotate(310deg) saturate(2) contrast(1.4) brightness(0.9);
+}
+.housestyling-section {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.housestyling-section h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #68793f;
+}
+
+.housestyling-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    gap: 16px;
+    padding-bottom: 16px;
+    border: 1px solid rgba(156, 28, 28, 0.7);
+}
+
+.room-image-container {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room img.room-image {
+    width: 100%;
+    max-height: 1000px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: hue-rotate(310deg) saturate(2) contrast(1.4) brightness(0.9);
+}
+
+.room h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #9c1c1c;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.room button.browseButton {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #68793f;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.room button.browseButton:hover {
+    background-color: #9c1c1c;
 }
 
 footer {
@@ -120,5 +185,5 @@ footer {
 }
 
 .follow-btn:hover {
-    background-color: #555;
+    background-color: #9c1c1c;
 }
