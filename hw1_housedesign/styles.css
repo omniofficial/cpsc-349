@@ -22,6 +22,7 @@ For all other text, if not specified above, an approximate font size is acceptab
 }
 
 .top-section {
+    background-color: #f8ebeb;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,12 +38,87 @@ For all other text, if not specified above, an approximate font size is acceptab
 
 .header {
     display: flex;
-    font-size: 30px;
+    font-size: 14px;
     gap: 300px;
 }
 
 .background-section {
-    /* This needs to have a z index of -1 I believe. Need to be able to be static and scroll past it. */
-    align-items: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.background-section img.room-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 80px 0px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 210px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.column-content {
+    color: #9c1c1c;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #9c1c1c;
+    transition: color 0.2s;
+}
+
+.follow-btn {
+    padding: 10px 20px;
+    background-color: #68793f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: fit-content;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+}
+
+.follow-btn:hover {
+    background-color: #555;
 }
