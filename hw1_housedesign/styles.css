@@ -17,19 +17,32 @@ Footer content
 For all other text, if not specified above, an approximate font size is acceptable. 
 */
 
-/* TO-DO */
+* {
+    font-family: Arial, sans-serif;
+}
+
+.top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 60px;
+}
 
 .title {
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .header {
-    font-size: 14px;
+    display: flex;
+    font-size: 30px;
+    gap: 300px;
 }
 
-/*.background-section {
-    /* This needs to have a z index of -1 I believe. Need to be able to be static and scroll past it.
-} */
-
-
+.background-section {
+    /* This needs to have a z index of -1 I believe. Need to be able to be static and scroll past it. */
+    align-items: center;
+    justify-content: center;
+}
