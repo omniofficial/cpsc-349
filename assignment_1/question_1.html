@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>banner</title>
+        <script>
+            var sent =
+                "This is a demonstration of a banner moving from the left to right.";
+            var slen = sent.length;
+            var siz = 25;
+            var a = -3,
+                b = 0;
+            var subsent = "";
+
+            function makeSub(a, b) {
+                subsent = sent.substring(a, b);
+                return subsent;
+            }
+
+            function newMake() {
+                a = a + 1;
+                // move one character per step
+                b = a + siz;
+                if (a > slen) {
+                    a = -3;
+                } // reset when finished
+                makeSub(a, b);
+                return subsent;
+            }
+
+            function doIt() {
+                for (var i = 0; i < slen; i++) {
+                    setTimeout(function () {
+                        document.getElementById("textDisplay").innerHTML =
+                            newMake();
+                    }, i * 300);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <p id="textDisplay"></p>
+            <button onclick="doIt()">Run Banner</button>
+        </div>
+    </body>
+</html>
