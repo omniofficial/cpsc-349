@@ -7,14 +7,14 @@
 
     <body>
         <h2>Shopping List</h2>
-        <div TODO1></div>
+        <div id="list-container"></div>
 
         <script>
             const container = document.getElementById("list-container");
 
             // Fetch items from the API
             fetch("https://68d6e78dc2a1754b426c3410.mockapi.io/fruit")
-                .then(TODO2) // assume the API returns JSON
+                .then((res) => res.json()) // assume the API returns JSON
                 .then((data) => {
                     // Example API response:
                     // [
@@ -29,12 +29,12 @@
                     let html = "<ul>";
 
                     for (let item of data) {
-                        TODO3;
+                        html += `<li>${item.fruit}</li>`;
                     }
 
                     html += "</ul>";
 
-                    TODO4;
+                    container.innerHTML = html;
                 })
                 .catch((error) => {
                     console.error("Error fetching data:", error);
