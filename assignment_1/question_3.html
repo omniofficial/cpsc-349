@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Shopping List</title>
+    </head>
+
+    <body>
+        <h2>Shopping List</h2>
+        <div TODO1></div>
+
+        <script>
+            const container = document.getElementById("list-container");
+
+            // Fetch items from the API
+            fetch("https://68d6e78dc2a1754b426c3410.mockapi.io/fruit")
+                .then(TODO2) // assume the API returns JSON
+                .then((data) => {
+                    // Example API response:
+                    // [
+                    //   { fruit: "Apples" },
+                    //   { fruit: "Banana" },
+                    //   { fruit: "Orange" },
+                    //   { fruit: "Watermelon" },
+                    //   { fruit: "Pineapple" }
+                    // ]
+
+                    // Build the HTML dynamically
+                    let html = "<ul>";
+
+                    for (let item of data) {
+                        TODO3;
+                    }
+
+                    html += "</ul>";
+
+                    TODO4;
+                })
+                .catch((error) => {
+                    console.error("Error fetching data:", error);
+                    container.innerHTML = "<p>Failed to load items.</p>";
+                });
+        </script>
+    </body>
+</html>
