@@ -7,6 +7,39 @@
     </head>
     <body>
         <!-- TODO HERE -->
+        <div class="header">
+            <h1>Movies Explorer</h1>
+
+            <div class="bottom-section">
+                <!-- Search Bar -->
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    placeholder="Search..."
+                />
+
+                <!-- Sort Button -->
+                <label for="sort">Sort:</label>
+                <select id="sort" name="sort">
+                    <option value="default">Default</option>
+                    <option value="sort-ascending">Release Date (Asc)</option>
+                    <option value="sort-descending">Release Date (Desc)</option>
+                    <option value="sort-newest">Rating (Asc)</option>
+                    <option value="sort-oldest">Rating (Desc)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="content-container"></div>
+
+        <div class="footer-section">
+            <button id="previous-btn">Previous</button>
+
+            <span class="page-info">Page 1 of 10</span>
+
+            <button id="next-btn">Next</button>
+        </div>
 
         <script src="script.js"></script>
     </body>
