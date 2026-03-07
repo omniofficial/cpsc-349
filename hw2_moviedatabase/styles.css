@@ -1,10 +1,18 @@
-*{
-
-  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+}
 
-
+.content-container {
+    display: grid;
+}
 
 /* All movies will have this style*/
-.movie-card
+.movie-card {
+    display: flex;
+}
