@@ -8,7 +8,7 @@
     <body>
         <!-- TODO HERE -->
         <div class="header">
-            <h1>Movies Explorer</h1>
+            <h1>Movie Explorer</h1>
 
             <div class="bottom-section">
                 <!-- Search Bar -->
@@ -16,13 +16,13 @@
                     type="text"
                     id="search"
                     name="search"
-                    placeholder="Search..."
+                    placeholder="Search for a movie..."
                 />
 
                 <!-- Sort Button -->
-                <label for="sort">Sort:</label>
+
                 <select id="sort" name="sort">
-                    <option value="default">Default</option>
+                    <option value="" disabled selected>Sort By</option>
                     <option value="sort-ascending">Release Date (Asc)</option>
                     <option value="sort-descending">Release Date (Desc)</option>
                     <option value="sort-newest">Rating (Asc)</option>
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="content-container"></div>
+        <div id="content-container"></div>
 
         <div class="footer-section">
             <button id="previous-btn">Previous</button>

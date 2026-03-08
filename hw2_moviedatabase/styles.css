@@ -5,7 +5,38 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", Times, serif, sans-serif;
+    background-color: #b0c4de;
+}
+
+.header h1 {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    font-size: 45px;
+    background-color: #1f2c41;
+}
+
+.bottom-section {
+    display: flex;
+    gap: 10px;
+    padding: 2px;
+    background-color: #1f2c4f;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+#search {
+    width: 150px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+#sort {
+    width: 160px;
+    padding: 6px;
+    border-radius: 8px;
 }
 
 .content-container {
@@ -15,4 +46,28 @@ body {
 /* All movies will have this style*/
 .movie-card {
     display: flex;
+}
+
+.footer-section {
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.footer-section button:hover {
+    background-color: #0056b3;
 }
