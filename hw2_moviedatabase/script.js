@@ -1,6 +1,6 @@
 const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
 const BEARER_TOKEN =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2Q5MTE0ZDkxNDYyMWRmZDkwN2M0ZGRjOTRlZCIsInNjb3BlcyI6WyJhcGlfcmVhCJdLCJ2ZXJzaW9uIjoxfQ.GplMZ8ZbFpH1Svdht9y9998mPJD233SNtJ8rtyVGvBw";
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2Q5MTE0ZDkxNjQxNDYyMWRmZDkwN2M0ZGRjOTRlZCIsIm5iZiI6MTc3MzAwNzk0Mi4zMzMsInN1YiI6IjY5YWRmNDQ2ODUzMTgyNDgzMDRlYjEyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GplMZ8ZbFpH1Svdht9y9998mPJD233SNtJ8rtyVGvBw";
 
 const pagesToLoad = 10;
 
@@ -146,17 +146,21 @@ function searchMovies() {
 
 // SORT MOVIES LOGIC BELOW
 function sortAscending() {
-    allMovies.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+    filteredMovies.sort(
+        (a, b) => new Date(a.releaseDate) - new Date(b.releaseDate),
+    );
 }
 
 function sortDescending() {
-    allMovies.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    filteredMovies.sort(
+        (a, b) => new Date(b.releaseDate) - new Date(a.releaseDate),
+    );
 }
 
 function sortNewest() {
-    allMovies.sort((a, b) => a.rating - b.rating);
+    filteredMovies.sort((a, b) => a.rating - b.rating);
 }
 
 function sortOldest() {
-    allMovies.sort((a, b) => b.rating - a.rating);
+    filteredMovies.sort((a, b) => b.rating - a.rating);
 }
