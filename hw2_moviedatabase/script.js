@@ -4,6 +4,7 @@ const BEARER_TOKEN =
 
 const pagesToLoad = 10;
 
+let filteredMovies = [];
 let allMovies = [];
 let currentPage = 1;
 const moviesPerPage = 20;
@@ -80,6 +81,7 @@ async function fetchMultiplePages(pageCount) {
     }
 
     totalPages = Math.ceil(allMovies.length / moviesPerPage);
+    filteredMovies = [...allMovies];
 }
 
 // Renders the current page the user is on with movies. Page 1, 2, etc.
@@ -88,7 +90,10 @@ function renderCurrentPage() {
     container.innerHTML = "";
 
     const startIndex = (currentPage - 1) * moviesPerPage;
-    const pageMovies = allMovies.slice(startIndex, startIndex + moviesPerPage);
+    const pageMovies = filteredMovies.slice(
+        startIndex,
+        startIndex + moviesPerPage,
+    );
 
     const grid = document.createElement("div");
     grid.classList.add("movies-grid");
@@ -125,12 +130,17 @@ function renderCurrentPage() {
 // Query through movies in filtered movies array.
 function searchMovies() {
     const query = document.getElementById("search").value.toLowerCase();
-    const filtered = allMovies.filter((movie) =>
-        movie.title.toLowerCase().includes(query),
-    );
+
+    if (query === "") {
+        filteredMovies = [...allMovies];
+    } else {
+        filteredMovies = allMovies.filter((movie) =>
+            movie.title.toLowerCase().includes(query),
+        );
+    }
+
     currentPage = 1;
-    totalPages = Math.ceil(filtered.length / moviesPerPage);
-    allMovies = filtered;
+    totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
     renderCurrentPage();
 }
 
