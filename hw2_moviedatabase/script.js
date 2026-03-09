@@ -2,13 +2,15 @@ const BASE_URL = "https://api.themoviedb.org/3/discover/movie";
 const BEARER_TOKEN =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmY2Q5MTE0ZDkxNjQxNDYyMWRmZDkwN2M0ZGRjOTRlZCIsIm5iZiI6MTc3MzAwNzk0Mi4zMzMsInN1YiI6IjY5YWRmNDQ2ODUzMTgyNDgzMDRlYjEyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.GplMZ8ZbFpH1Svdht9y9998mPJD233SNtJ8rtyVGvBw";
 
-const pagesToLoad = 10;
+const pagesToLoad = 40;
 
 let filteredMovies = [];
 let allMovies = [];
 let currentPage = 1;
 const moviesPerPage = 20;
 let totalPages = 1;
+
+let sortValue = "&sort_by=popularity.desc";
 
 // Button handlers / sort function calls
 document.addEventListener("DOMContentLoaded", async () => {
@@ -31,23 +33,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("search").addEventListener("input", searchMovies);
 
-    document.getElementById("sort").addEventListener("change", (e) => {
+    // Sorting logic.
+    document.getElementById("sort").addEventListener("change", async (e) => {
         switch (e.target.value) {
             case "release-asc":
-                sortReleaseAsc();
+                sortValue = "&sort_by=primary_release_date.asc";
                 break;
+
             case "release-desc":
-                sortReleaseDesc();
+                sortValue = "&sort_by=primary_release_date.desc";
                 break;
+
             case "rating-asc":
-                sortRatingAsc();
+                sortValue = "&sort_by=vote_average.asc";
                 break;
+
             case "rating-desc":
-                sortRatingDesc();
+                sortValue = "&sort_by=vote_average.desc";
                 break;
         }
 
         currentPage = 1;
+        await fetchMultiplePages(pagesToLoad);
         renderCurrentPage();
     });
 });
@@ -63,12 +70,15 @@ async function fetchMultiplePages(pageCount) {
     };
 
     allMovies = [];
+
     for (let page = 1; page <= pageCount; page++) {
         const res = await fetch(
-            `${BASE_URL}?language=en-US&sort_by=popularity.desc&page=${page}`,
+            `${BASE_URL}?include_adult=false&include_video=false&page=${page}${sortValue}`,
             options,
         );
+
         const data = await res.json();
+
         allMovies.push(
             ...data.results
                 .filter((m) => m.poster_path) // Movies with poster only will be loaded
@@ -91,6 +101,7 @@ function renderCurrentPage() {
     container.innerHTML = "";
 
     const startIndex = (currentPage - 1) * moviesPerPage;
+
     const pageMovies = filteredMovies.slice(
         startIndex,
         startIndex + moviesPerPage,
@@ -124,6 +135,7 @@ function renderCurrentPage() {
     });
 
     container.appendChild(grid);
+
     document.querySelector(".page-info").textContent =
         `Page ${currentPage} of 55687`;
 }
@@ -143,25 +155,4 @@ function searchMovies() {
     currentPage = 1;
     totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
     renderCurrentPage();
-}
-
-// SORT MOVIES LOGIC BELOW
-function sortReleaseAsc() {
-    filteredMovies.sort(
-        (a, b) => new Date(a.releaseDate) - new Date(b.releaseDate),
-    );
-}
-
-function sortReleaseDesc() {
-    filteredMovies.sort(
-        (a, b) => new Date(b.releaseDate) - new Date(a.releaseDate),
-    );
-}
-
-function sortRatingAsc() {
-    filteredMovies.sort((a, b) => a.rating - b.rating);
-}
-
-function sortRatingDesc() {
-    filteredMovies.sort((a, b) => b.rating - a.rating);
 }
