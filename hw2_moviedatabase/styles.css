@@ -1,3 +1,4 @@
+/* Defaults */
 * {
     margin: 0;
     padding: 0;
@@ -44,10 +45,44 @@ body {
 }
 
 /* All movies will have this style*/
-.movie-card {
-    display: flex;
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
 }
 
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 10px 30px 10px;
+}
+
+.movie-card img {
+    width: 150px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #333;
+}
+
+.movie-card p {
+    font-size: 1rem;
+    margin: 2px 0;
+    color: #555;
+}
+
+/* Bottom part with previous, page info, and next buttons */
 .footer-section {
     font-size: 20px;
     display: flex;
