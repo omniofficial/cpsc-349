@@ -33,19 +33,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("sort").addEventListener("change", (e) => {
         switch (e.target.value) {
-            case "sort-ascending":
-                sortAscending();
+            case "release-asc":
+                sortReleaseAsc();
                 break;
-            case "sort-descending":
-                sortDescending();
+            case "release-desc":
+                sortReleaseDesc();
                 break;
-            case "sort-newest":
-                sortNewest();
+            case "rating-asc":
+                sortRatingAsc();
                 break;
-            case "sort-oldest":
-                sortOldest();
+            case "rating-desc":
+                sortRatingDesc();
                 break;
         }
+
         currentPage = 1;
         renderCurrentPage();
     });
@@ -145,22 +146,22 @@ function searchMovies() {
 }
 
 // SORT MOVIES LOGIC BELOW
-function sortAscending() {
+function sortReleaseAsc() {
     filteredMovies.sort(
         (a, b) => new Date(a.releaseDate) - new Date(b.releaseDate),
     );
 }
 
-function sortDescending() {
+function sortReleaseDesc() {
     filteredMovies.sort(
         (a, b) => new Date(b.releaseDate) - new Date(a.releaseDate),
     );
 }
 
-function sortNewest() {
+function sortRatingAsc() {
     filteredMovies.sort((a, b) => a.rating - b.rating);
 }
 
-function sortOldest() {
+function sortRatingDesc() {
     filteredMovies.sort((a, b) => b.rating - a.rating);
 }
